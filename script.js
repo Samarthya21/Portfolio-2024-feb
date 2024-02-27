@@ -60,7 +60,9 @@ window.addEventListener("scroll", function () {
 
 
 
+
 let form = document.getElementById("myForm");
+let errorText = document.getElementsByClassName("error-txt")[0];
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     try {
@@ -68,10 +70,43 @@ form.addEventListener("submit", function (event) {
         let email = document.getElementById("email-form").value;
         let address = document.getElementById("address-form").value;
         let message = document.getElementById("message-form").value;
-        let number =document.getElementById("number-form").value
-        let obj = { name, email, address, message ,number};
-        localStorage.setItem("data",{obj})
-        console.log(obj);
+        let number = document.getElementById("number-form").value
+
+        let nameError = document.getElementsByClassName("name-error")[0];
+        let emailError = document.getElementsByClassName("email-error")[0];
+        let addressError = document.getElementsByClassName("address-error")[0];
+        let messageError = document.getElementsByClassName("message-error")[0];
+        let numberError = document.getElementsByClassName("number-error")[0];
+        
+        nameError.style.display = name ? "none" : "block";
+        emailError.style.display = email ? "none" : "block";
+        addressError.style.display = address ? "none" : "block";
+        messageError.style.display = message ? "none" : "block";
+        numberError.style.display = number ? "none" : "block";
+        
+        
+        if (name && email && address && message && number) {
+            let obj = {
+                name,
+                email,
+                address,
+                message,
+                number
+            };
+
+            let storedData = localStorage.getItem("data");
+            let mergedData = {};
+
+            if (storedData) {
+                mergedData = { ...JSON.parse(storedData), ...obj };
+            } else {
+                mergedData = obj;
+            }
+
+            localStorage.setItem("data", JSON.stringify(mergedData));
+            console.log(mergedData);
+        }
+
         
     }
     catch (error) {
