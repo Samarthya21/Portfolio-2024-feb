@@ -288,11 +288,30 @@
             <h3>Contact Me</h3>
         </div>
         <form action="#" id="myForm">
-            <input type="text" placeholder="Your Name" id="name-form">
-            <input type="text" placeholder="Your Email" id="email-form">
-            <input type="text" placeholder="Your Address" id="address-form">
-            <input type="number" placeholder="Phone number" id="number-form">
-            <textarea name=""  cols="30" rows="10" placeholder="Your message" id="message-form"></textarea>
+            <div>
+                <input type="text" placeholder="Your Name" id="name-form">
+               
+                    <span class="name-error">This field cannot be empty</span>
+                
+                
+            </div>
+            <div>
+                <input type="text" placeholder="Your Email" id="email-form">
+                <span class="email-error">This field cannot be empty</span>
+            </div>
+            <div>
+                <input type="text" placeholder="Your Address" id="address-form">
+                <span class="address-error">This field cannot be empty</span>
+            </div>
+            <div>
+                <input type="number" placeholder="Phone number" id="number-form">
+                <span class="number-error">This field cannot be empty</span>
+            </div>
+            <div>
+                <textarea name=""  cols="30" rows="10" placeholder="Your message" id="message-form"></textarea>
+                <span class="message-error">This field cannot be empty</span>
+            </div>
+            
             <div class="btn-box formBtn">
                 <button type="submit" class="btn" id="FormBtn">Send Message</button>
             </div>
