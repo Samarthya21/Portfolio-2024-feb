@@ -115,3 +115,25 @@ form.addEventListener("submit", function (event) {
     
     
 })
+
+
+
+function handleDownloadClick() {
+    
+    const pdfFilePath = "RESUME.pdf";
+
+   
+    const a = document.createElement("a");
+    a.href = pdfFilePath;
+    a.download = "sample.pdf";
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+  }
+
+
+  
+  const downloadButton = document.getElementById("downloadButton");
+  downloadButton.addEventListener("click", handleDownloadClick);
