@@ -125,7 +125,7 @@ function handleDownloadClick() {
    
     const a = document.createElement("a");
     a.href = pdfFilePath;
-    a.download = "samarthya_alok_resume.pdf";
+    a.download = "samarthyaalok_07:25.pdf";
 
     document.body.appendChild(a);
     a.click();
